@@ -14,13 +14,13 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"FavoriteMapPrice"];
 }
 
-@dynamic from;
-@dynamic to;
-@dynamic departure;
-@dynamic returnDate;
-@dynamic numberOfChanges;
-@dynamic value;
-@dynamic distance;
 @dynamic actual;
+@dynamic departure;
+@dynamic distance;
+@dynamic from;
+@dynamic numberOfChanges;
+@dynamic returnDate;
+@dynamic to;
+@dynamic price;
 
 @end

@@ -10,13 +10,17 @@
 #import "APIManager.h"
 #import "Ticket.h"
 #import "FavoriteTiket+CoreDataClass.h"
+#import "FavoriteMapPrice+CoreDataClass.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TicketTableViewCell : UITableViewCell
+
 @property (nonatomic, strong) Ticket *ticket;
 @property (nonatomic, strong) FavoriteTiket *favoriteTicket;
+@property (nonatomic, strong) FavoriteMapPrice *favoriteMapPrice;
+
 @end
 
 NS_ASSUME_NONNULL_END

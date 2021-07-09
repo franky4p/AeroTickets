@@ -15,14 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSFetchRequest<FavoriteMapPrice *> *)fetchRequest;
 
-@property (nullable, nonatomic, copy) NSString *from;
-@property (nullable, nonatomic, copy) NSString *to;
-@property (nullable, nonatomic, copy) NSDate *departure;
-@property (nullable, nonatomic, copy) NSDate *returnDate;
-@property (nonatomic) int16_t numberOfChanges;
-@property (nonatomic) int32_t value;
-@property (nonatomic) int64_t distance;
 @property (nonatomic) BOOL actual;
+@property (nullable, nonatomic, copy) NSDate *departure;
+@property (nonatomic) int64_t distance;
+@property (nullable, nonatomic, copy) NSString *from;
+@property (nonatomic) int16_t numberOfChanges;
+@property (nullable, nonatomic, copy) NSDate *returnDate;
+@property (nullable, nonatomic, copy) NSString *to;
+@property (nonatomic) int64_t price;
 
 @end
 
