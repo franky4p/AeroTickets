@@ -184,10 +184,10 @@
 				FAB03F0F26971554007C8812 /* CoreDataHelper.m */,
 				FA8BFB202697082400045BCB /* Airport.h */,
 				FA8BFB212697082400045BCB /* MapPrice.h */,
+				FA8BFB272697082400045BCB /* MapPrice.m */,
 				FA8BFB222697082400045BCB /* City.m */,
 				FA8BFB232697082400045BCB /* Airport.m */,
 				FA8BFB262697082400045BCB /* City.h */,
-				FA8BFB272697082400045BCB /* MapPrice.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,10 +197,10 @@
 			children = (
 				FA8BFB2E2697082C00045BCB /* DataManager.h */,
 				FA8BFB2F2697082C00045BCB /* APIManager.h */,
+				FA8BFB332697082C00045BCB /* LocationService.h */,
 				FA8BFB302697082C00045BCB /* LocationService.m */,
 				FA8BFB312697082C00045BCB /* DataManager.m */,
 				FA8BFB322697082C00045BCB /* APIManager.m */,
-				FA8BFB332697082C00045BCB /* LocationService.h */,
 			);
 			path = Services;
 			sourceTree = "<group>";

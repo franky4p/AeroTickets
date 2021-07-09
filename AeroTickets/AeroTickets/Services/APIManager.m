@@ -43,11 +43,6 @@
     }];
 }
 
-
-
-
-
-
 - (void)IPAddressWithCompletion:(void (^)(NSString *ipAddress))completion {
     [self load:API_URL_IP_ADDRESS withCompletion:^(id  _Nullable result) {
         NSDictionary *json = result;
@@ -62,8 +57,6 @@
         }
     }] resume] ;
 }
-
-
 
 - (void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion {
     NSString *urlString = [NSString stringWithFormat:@"%@?%@&token=%@", API_URL_CHEAP, SearchRequestQuery(request), API_TOKEN];
@@ -96,8 +89,7 @@ NSString * SearchRequestQuery(SearchRequest request) {
     return result;
 }
 
-- (void)mapPricesFor:(City *)origin withCompletion:(void (^)(NSArray *prices))completion
-{
+- (void)mapPricesFor:(City *)origin withCompletion:(void (^)(NSArray *prices))completion {
     static BOOL isLoading;
     if (isLoading) { return; }
     isLoading = YES;
@@ -116,8 +108,5 @@ NSString * SearchRequestQuery(SearchRequest request) {
         }
     }];
 }
-
-
-
 
 @end

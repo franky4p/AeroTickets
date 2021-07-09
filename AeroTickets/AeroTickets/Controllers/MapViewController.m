@@ -12,6 +12,7 @@
 #import "DataManager.h"
 #import "MapPrice.h"
 #import <CoreLocation/CoreLocation.h>
+#import "CoreDataHelper.h"
 
 @interface MapViewController ()
 
@@ -31,6 +32,7 @@
     
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     _mapView.showsUserLocation = YES;
+    [_mapView setDelegate:self];
     [self.view addSubview:_mapView];
     
     [[DataManager sharedInstance] loadData];
@@ -74,8 +76,50 @@
             annotation.title = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
             annotation.subtitle = [NSString stringWithFormat:@"%ld руб.", (long)price.value];
             annotation.coordinate = price.destination.coordinate;
+            
             [self->_mapView addAnnotation: annotation];
         });
+    }
+}
+
+- (nullable MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"MarkerIdentifier";
+    MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    
+    if (!annotationView) {
+        NSInteger AnnotationIndex = [_mapView.annotations indexOfObject:annotation];
+        
+        UIButton *button = [UIButton buttonWithType: UIButtonTypeContactAdd];
+        button.tag = AnnotationIndex;
+        [button addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+        
+        annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        annotationView.canShowCallout = YES;
+        annotationView.calloutOffset = CGPointMake(-5, 5);
+        annotationView.rightCalloutAccessoryView = button;
+    }
+    annotationView.annotation = annotation;
+    
+    return annotationView;
+}
+
+- (void)placeButtonDidTap:(UIButton *)sender {
+    NSString *city = [self.mapView.annotations[sender.tag] title];
+    NSArray *arrayFromStringCity = [city componentsSeparatedByString:@"("];
+    
+    if (arrayFromStringCity.count == 2) {
+        NSString *cityName = [arrayFromStringCity[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *cityCode = [arrayFromStringCity[1] stringByReplacingOccurrencesOfString:@")" withString:@""];
+        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"SELF.destination.name contains[cd]%@ and SELF.destination.code contains[cd]%@", cityName, cityCode];
+        
+        NSMutableArray *valuesPrices =  [NSMutableArray arrayWithArray:[self.prices filteredArrayUsingPredicate:filterPredicate]];
+        [self addMapPriceToFavorite:valuesPrices];
+    }
+}
+
+- (void) addMapPriceToFavorite:(NSArray *)prices {
+    for (MapPrice *price in prices) {
+        //[[CoreDataHelper sharedInstance] addToFavorite:price];
     }
 }
 
