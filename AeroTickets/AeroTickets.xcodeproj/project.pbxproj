@@ -33,6 +33,8 @@
 		FAB03F1026971554007C8812 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F0F26971554007C8812 /* CoreDataHelper.m */; };
 		FAB03F152697195E007C8812 /* FavoriteTiket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F132697195E007C8812 /* FavoriteTiket+CoreDataClass.m */; };
 		FAB03F162697195E007C8812 /* FavoriteTiket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F142697195E007C8812 /* FavoriteTiket+CoreDataProperties.m */; };
+		FAB03F2D26988F42007C8812 /* FavoriteMapPrice+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F2B26988F42007C8812 /* FavoriteMapPrice+CoreDataClass.m */; };
+		FAB03F2E26988F42007C8812 /* FavoriteMapPrice+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F2C26988F42007C8812 /* FavoriteMapPrice+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,10 @@
 		FAB03F122697195E007C8812 /* FavoriteTiket+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteTiket+CoreDataClass.h"; sourceTree = "<group>"; };
 		FAB03F132697195E007C8812 /* FavoriteTiket+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavoriteTiket+CoreDataClass.m"; sourceTree = "<group>"; };
 		FAB03F142697195E007C8812 /* FavoriteTiket+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavoriteTiket+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FAB03F2926988F42007C8812 /* FavoriteMapPrice+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteMapPrice+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FAB03F2A26988F42007C8812 /* FavoriteMapPrice+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteMapPrice+CoreDataClass.h"; sourceTree = "<group>"; };
+		FAB03F2B26988F42007C8812 /* FavoriteMapPrice+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavoriteMapPrice+CoreDataClass.m"; sourceTree = "<group>"; };
+		FAB03F2C26988F42007C8812 /* FavoriteMapPrice+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FavoriteMapPrice+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 		FA8BFADA2697078E00045BCB = {
 			isa = PBXGroup;
 			children = (
+				FAB03F2926988F42007C8812 /* FavoriteMapPrice+CoreDataProperties.h */,
+				FAB03F2A26988F42007C8812 /* FavoriteMapPrice+CoreDataClass.h */,
+				FAB03F2B26988F42007C8812 /* FavoriteMapPrice+CoreDataClass.m */,
+				FAB03F2C26988F42007C8812 /* FavoriteMapPrice+CoreDataProperties.m */,
 				FAB03F112697195E007C8812 /* FavoriteTiket+CoreDataProperties.h */,
 				FAB03F122697195E007C8812 /* FavoriteTiket+CoreDataClass.h */,
 				FAB03F132697195E007C8812 /* FavoriteTiket+CoreDataClass.m */,
@@ -276,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB03F2D26988F42007C8812 /* FavoriteMapPrice+CoreDataClass.m in Sources */,
 				FA8BFB292697082400045BCB /* City.m in Sources */,
 				FA8BFB362697082C00045BCB /* APIManager.m in Sources */,
 				FA8BFB342697082C00045BCB /* LocationService.m in Sources */,
@@ -288,6 +299,7 @@
 				FA8BFB2C2697082400045BCB /* MapPrice.m in Sources */,
 				FA8BFB282697082400045BCB /* Country.m in Sources */,
 				FA8BFAE82697078E00045BCB /* AppDelegate.m in Sources */,
+				FAB03F2E26988F42007C8812 /* FavoriteMapPrice+CoreDataProperties.m in Sources */,
 				FA8BFB1A2697081900045BCB /* MainViewController.m in Sources */,
 				FA8BFB172697081900045BCB /* TabBarController.m in Sources */,
 				FAB03F1026971554007C8812 /* CoreDataHelper.m in Sources */,

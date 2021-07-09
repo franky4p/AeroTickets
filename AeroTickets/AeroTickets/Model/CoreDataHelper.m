@@ -9,9 +9,8 @@
 #import <CoreData/CoreData.h>
 #import "FavoriteTiket+CoreDataClass.h"
 #import "FavoriteTiket+CoreDataProperties.h"
-#import "FavoriteMapPrice+CoreDataClass.h"
 #import "FavoriteMapPrice+CoreDataProperties.h"
-#import "MapPrice.h"
+#import "FavoriteMapPrice+CoreDataClass.h"
 
 #define favoriteTiket @"FavoriteTiket"
 #define favoriteMapPrice @"FavoriteMapPrice"
@@ -88,10 +87,10 @@
 
 - (void)addMapPriceToFavorite:(MapPrice *)ticket {
     FavoriteMapPrice *favorite = [NSEntityDescription insertNewObjectForEntityForName:favoriteMapPrice inManagedObjectContext:_managedObjectContext];
-    favorite.value = ticket.value;
+    favorite.value = (int)ticket.value;
     favorite.departure = ticket.departure;
     favorite.returnDate = ticket.returnDate;
-    //favorite.from = ticket.destination.code;
+    favorite.from = ticket.destination.code;
     favorite.to = ticket.destination.code;
 
     [self save];

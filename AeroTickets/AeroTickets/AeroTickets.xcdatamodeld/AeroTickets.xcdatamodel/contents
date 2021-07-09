@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="FavoriteMapPrice" representedClassName="FavoriteMapPrice" syncable="YES" codeGenerationType="class">
+    <entity name="FavoriteMapPrice" representedClassName="FavoriteMapPrice" syncable="YES">
         <attribute name="actual" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="departure" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="distance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -8,7 +8,7 @@
         <attribute name="numberOfChanges" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="returnDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="to" optional="YES" attributeType="String"/>
-        <attribute name="value" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="value" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="FavoriteTiket" representedClassName="FavoriteTiket" syncable="YES">
         <attribute name="airline" optional="YES" attributeType="String"/>
@@ -22,7 +22,7 @@
         <attribute name="to" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="FavoriteMapPrice" positionX="-54" positionY="63" width="128" height="149"/>
         <element name="FavoriteTiket" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="FavoriteMapPrice" positionX="-45" positionY="72" width="128" height="149"/>
     </elements>
 </model>

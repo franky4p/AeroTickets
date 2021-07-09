@@ -119,7 +119,7 @@
 
 - (void) addMapPriceToFavorite:(NSArray *)prices {
     for (MapPrice *price in prices) {
-        //[[CoreDataHelper sharedInstance] addToFavorite:price];
+        [[CoreDataHelper sharedInstance] addMapPriceToFavorite:price];
     }
 }
 
