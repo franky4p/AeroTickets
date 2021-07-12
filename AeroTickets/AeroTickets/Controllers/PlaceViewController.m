@@ -58,6 +58,7 @@
     _segmentedControl.tintColor = [UIColor blackColor];
     self.navigationItem.titleView = _segmentedControl;
     _segmentedControl.selectedSegmentIndex = 0;
+    
     [self changeSource];
     if (_placeType == PlaceTypeDeparture) {
         self.title = @"Откуда";

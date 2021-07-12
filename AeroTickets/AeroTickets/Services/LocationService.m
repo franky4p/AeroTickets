@@ -17,7 +17,6 @@
 @end
 
 
-
 @implementation LocationService
 
 - (instancetype)init
@@ -30,17 +29,6 @@
     }
     return self;
 }
-
-//- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-//
-//    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-//        [_locationManager startUpdatingLocation];
-//    } else if (status != kCLAuthorizationStatusNotDetermined) {
-//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Упс!" message:@"Не удалось определить текущий город!" preferredStyle: UIAlertControllerStyleAlert];
-//        [alertController addAction:[UIAlertAction actionWithTitle:@"Закрыть" style:(UIAlertActionStyleDefault) handler:nil]];
-//        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
-//    }
-//}
 
 - (void)locationManagerDidChangeAuthorization:(CLLocationManager *)manager  {
     if (manager.authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || manager.authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
@@ -59,6 +47,5 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:kLocationServiceDidUpdateCurrentLocation object:_currentLocation];
     }
 }
-
 
 @end

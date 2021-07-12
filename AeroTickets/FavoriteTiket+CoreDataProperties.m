@@ -2,7 +2,7 @@
 //  FavoriteTiket+CoreDataProperties.m
 //  AeroTickets
 //
-//  Created by Pavel Khlebnikov on 08.07.2021.
+//  Created by Pavel Khlebnikov on 09.07.2021.
 //
 //
 

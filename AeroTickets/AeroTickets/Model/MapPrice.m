@@ -10,7 +10,6 @@
 
 @implementation MapPrice
 
-
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary withOrigin: (City *)origin
 {
     self = [super init];
@@ -34,7 +33,5 @@
     dateFormatter.dateFormat = @"yyyy-MM-dd";
     return [dateFormatter dateFromString: dateString];
 }
-
-
 
 @end

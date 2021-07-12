@@ -6,13 +6,14 @@
 //
 
 #import "CoreDataHelper.h"
-
-#import "CoreDataHelper.h"
 #import <CoreData/CoreData.h>
 #import "FavoriteTiket+CoreDataClass.h"
 #import "FavoriteTiket+CoreDataProperties.h"
+#import "FavoriteMapPrice+CoreDataProperties.h"
+#import "FavoriteMapPrice+CoreDataClass.h"
 
 #define favoriteTiket @"FavoriteTiket"
+#define favoriteMapPrice @"FavoriteMapPrice"
 
 @interface CoreDataHelper ()
 
@@ -84,6 +85,17 @@
     [self save];
 }
 
+- (void)addMapPriceToFavorite:(MapPrice *)ticket {
+    FavoriteMapPrice *favorite = [NSEntityDescription insertNewObjectForEntityForName:favoriteMapPrice inManagedObjectContext:_managedObjectContext];
+    favorite.price = ticket.value;
+    favorite.departure = ticket.departure;
+    favorite.returnDate = ticket.returnDate;
+    favorite.from = [NSString stringWithFormat:@"%@ (%@)", ticket.origin.name, ticket.origin.code];
+    favorite.to = [NSString stringWithFormat:@"%@ (%@)", ticket.destination.name, ticket.destination.code];
+
+    [self save];
+}
+
 - (void)removeFromFavorite:(Ticket *)ticket {
     FavoriteTiket *favorite = [self favoriteFromTicket:ticket];
     if (favorite) {
@@ -97,6 +109,13 @@
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:NO]];
     return [_managedObjectContext executeFetchRequest:request error:nil];
 }
+
+- (NSArray *)favoritesMapPrice {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:favoriteMapPrice];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"returnDate" ascending:NO]];
+    return [_managedObjectContext executeFetchRequest:request error:nil];
+}
+
 
 @end
 

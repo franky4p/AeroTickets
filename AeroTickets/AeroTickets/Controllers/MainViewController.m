@@ -97,8 +97,6 @@
     }];
 }
 
-
-
 - (void)placeButtonDidTap:(UIButton *)sender {
     PlaceViewController *placeViewController;
     if ([sender isEqual:_departureButton]) {

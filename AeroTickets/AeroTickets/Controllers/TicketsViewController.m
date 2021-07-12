@@ -12,11 +12,15 @@
 #define TicketCellReuseIdentifier @"TicketCellIdentifier"
 
 @interface TicketsViewController ()
+
 @property (nonatomic, strong) NSArray *tickets;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+
 @end
 
 @implementation TicketsViewController {
     BOOL isFavorites;
+    BOOL isMapPrice;
 }
 
 - (instancetype)initWithTickets:(NSArray *)tickets {
@@ -43,14 +47,28 @@
     return self;
 }
 
+- (instancetype)initFavoriteMapPriceController {
+    self = [super init];
+    if (self) {
+        isFavorites = YES;
+        isMapPrice = YES;
+        self.tickets = [NSArray new];
+        self.title = @"Избранное";
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Билеты", @"Карты цен"]];
+    [_segmentedControl addTarget:self action:@selector(changeSource) forControlEvents:UIControlEventValueChanged];
+    _segmentedControl.tintColor = [UIColor blackColor];
+    self.navigationItem.titleView = _segmentedControl;
+    _segmentedControl.selectedSegmentIndex = 0;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -58,9 +76,28 @@
     
     if (isFavorites) {
         self.navigationController.navigationBar.prefersLargeTitles = YES;
-        _tickets = [[CoreDataHelper sharedInstance] favorites];
+        if (isMapPrice) {
+            _tickets = [[CoreDataHelper sharedInstance] favoritesMapPrice];
+        } else {
+            _tickets = [[CoreDataHelper sharedInstance] favorites];
+        }
         [self.tableView reloadData];
     }
+}
+
+- (void)changeSource
+{
+    switch (_segmentedControl.selectedSegmentIndex) {
+        case 0:
+            _tickets = [[CoreDataHelper sharedInstance] favorites];
+            break;
+        case 1:
+            _tickets = [[CoreDataHelper sharedInstance] favoritesMapPrice];
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
