@@ -65,7 +65,6 @@
     }
 }
 
-
 - (void)setPrices:(NSArray *)prices {
     _prices = prices;
     [_mapView removeAnnotations: _mapView.annotations];

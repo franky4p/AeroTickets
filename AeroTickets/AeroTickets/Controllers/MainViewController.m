@@ -24,7 +24,6 @@
 
 @implementation MainViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[DataManager sharedInstance] loadData];
@@ -107,6 +106,7 @@
     placeViewController.delegate = self;
     [self.navigationController pushViewController: placeViewController animated:YES];
 }
+
 #pragma mark - PlaceViewControllerDelegate
 
 - (void)selectPlace:(id)place withType:(PlaceType)placeType andDataType:(DataSourceType)dataType {

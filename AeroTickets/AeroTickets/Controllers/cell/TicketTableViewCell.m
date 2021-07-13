@@ -11,12 +11,13 @@
 #import "FavoriteMapPrice+CoreDataClass.h"
 
 @interface TicketTableViewCell()
+
 @property (nonatomic, strong) UIImageView *airlineLogoView;
 @property (nonatomic, strong) UILabel *priceLabel;
 @property (nonatomic, strong) UILabel *placesLabel;
 @property (nonatomic, strong) UILabel *dateLabel;
-@end
 
+@end
 
 
 @implementation TicketTableViewCell
@@ -24,7 +25,6 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
         self.contentView.layer.shadowColor = [[[UIColor blackColor] colorWithAlphaComponent:0.2] CGColor];
         self.contentView.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         self.contentView.layer.shadowRadius = 10.0;
@@ -48,7 +48,6 @@
         _dateLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _dateLabel.font = [UIFont systemFontOfSize:15.0 weight:UIFontWeightRegular];
         [self.contentView addSubview:_dateLabel];
-        
     }
     return self;
 }

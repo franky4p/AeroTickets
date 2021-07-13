@@ -16,9 +16,7 @@
 
 @implementation TabBarController
 
-
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.viewControllers = [self createViewControllers];
@@ -26,7 +24,6 @@
     }
     return self;
 }
-
 
 - (NSArray<UIViewController*> *)createViewControllers {
     NSMutableArray<UIViewController*> *controllers = [NSMutableArray new];
@@ -49,6 +46,5 @@
     
     return controllers;
 }
-
 
 @end
