@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "MapViewController.h"
 #import "TabBarController.h"
+#import "NotificationCenter.h"
 
 @interface SceneDelegate ()
 
@@ -23,16 +24,13 @@
     self.window = [[UIWindow alloc] initWithFrame:windowFrame];
     [self.window makeKeyAndVisible];
     
-
-    //MainViewController *firstController = [[MainViewController alloc] init];
-    
     TabBarController *tabBarController = [TabBarController new];
-    
     self.window.rootViewController = tabBarController;
-   // firstController.view.backgroundColor = [UIColor greenColor];
     
     UIWindowScene *windowScene = (UIWindowScene*)scene;
     [self.window setWindowScene:windowScene];
+    
+    [[NotificationCenter sharedInstance] registerService];
 }
 
 

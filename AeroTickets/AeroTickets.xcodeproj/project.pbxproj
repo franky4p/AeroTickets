@@ -30,6 +30,7 @@
 		FA8BFB342697082C00045BCB /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8BFB302697082C00045BCB /* LocationService.m */; };
 		FA8BFB352697082C00045BCB /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8BFB312697082C00045BCB /* DataManager.m */; };
 		FA8BFB362697082C00045BCB /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8BFB322697082C00045BCB /* APIManager.m */; };
+		FAA43545269D8E7B002C1340 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA43544269D8E7B002C1340 /* NotificationCenter.m */; };
 		FAB03F1026971554007C8812 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F0F26971554007C8812 /* CoreDataHelper.m */; };
 		FAB03F152697195E007C8812 /* FavoriteTiket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F132697195E007C8812 /* FavoriteTiket+CoreDataClass.m */; };
 		FAB03F162697195E007C8812 /* FavoriteTiket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F142697195E007C8812 /* FavoriteTiket+CoreDataProperties.m */; };
@@ -79,6 +80,8 @@
 		FA8BFB312697082C00045BCB /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		FA8BFB322697082C00045BCB /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		FA8BFB332697082C00045BCB /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		FAA43543269D8E7B002C1340 /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		FAA43544269D8E7B002C1340 /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
 		FAB03F0E26971554007C8812 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		FAB03F0F26971554007C8812 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		FAB03F112697195E007C8812 /* FavoriteTiket+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteTiket+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 			children = (
 				FA8BFB2E2697082C00045BCB /* DataManager.h */,
 				FA8BFB2F2697082C00045BCB /* APIManager.h */,
+				FAA43543269D8E7B002C1340 /* NotificationCenter.h */,
+				FAA43544269D8E7B002C1340 /* NotificationCenter.m */,
 				FA8BFB332697082C00045BCB /* LocationService.h */,
 				FA8BFB302697082C00045BCB /* LocationService.m */,
 				FA8BFB312697082C00045BCB /* DataManager.m */,
@@ -309,6 +314,7 @@
 				FA8BFAEB2697078E00045BCB /* SceneDelegate.m in Sources */,
 				FA8BFB182697081900045BCB /* MapViewController.m in Sources */,
 				FA8BFB1B2697081900045BCB /* TicketTableViewCell.m in Sources */,
+				FAA43545269D8E7B002C1340 /* NotificationCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

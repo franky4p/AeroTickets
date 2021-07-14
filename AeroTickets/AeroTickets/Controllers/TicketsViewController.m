@@ -8,6 +8,7 @@
 #import "TicketsViewController.h"
 #import "TicketTableViewCell.h"
 #import "CoreDataHelper.h"
+#import "NotificationCenter.h"
 
 #define TicketCellReuseIdentifier @"TicketCellIdentifier"
 
@@ -15,22 +16,41 @@
 
 @property (nonatomic, strong) NSArray *tickets;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) UIDatePicker *datePicker;
+@property (nonatomic, strong) UITextField *dateTextField;
 
 @end
 
 @implementation TicketsViewController {
     BOOL isFavorites;
     BOOL isMapPrice;
+    TicketTableViewCell *notificationCell;
 }
 
 - (instancetype)initWithTickets:(NSArray *)tickets {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         _tickets = tickets;
         self.title = @"Билеты";
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
+        
+        _datePicker = [[UIDatePicker alloc] initWithFrame: CGRectMake(0, UIScreen.mainScreen.bounds.size.height - 150.0, UIScreen.mainScreen.bounds.size.width, 150)];
+        _datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+        _datePicker.minimumDate = [NSDate date];
+        
+        _dateTextField = [[UITextField alloc] initWithFrame:self.view.bounds];
+        _dateTextField.hidden = YES;
+        _dateTextField.inputView = _datePicker;
+        
+        UIToolbar *keyboardToolbar = [[UIToolbar alloc] init];
+        [keyboardToolbar sizeToFit];
+        UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidTap:)];
+        keyboardToolbar.items = @[flexBarButton, doneBarButton];
+        
+        _dateTextField.inputAccessoryView = keyboardToolbar;
+        [self.view addSubview:_dateTextField];
     }
     return self;
 }
@@ -68,7 +88,6 @@
     _segmentedControl.tintColor = [UIColor blackColor];
     self.navigationItem.titleView = _segmentedControl;
     _segmentedControl.selectedSegmentIndex = 0;
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -85,8 +104,7 @@
     }
 }
 
-- (void)changeSource
-{
+- (void)changeSource {
     switch (_segmentedControl.selectedSegmentIndex) {
         case 0:
             _tickets = [[CoreDataHelper sharedInstance] favorites];
@@ -100,6 +118,27 @@
     [self.tableView reloadData];
 }
 
+- (void)doneButtonDidTap:(UIBarButtonItem *)sender {
+    if (_datePicker.date && notificationCell) {
+        NSString *message = [NSString stringWithFormat:@"%@ - %@ за %@ руб.", notificationCell.ticket.from, notificationCell.ticket.to, notificationCell.ticket.price];
+        NSURL *imageURL;
+        
+        Notification notification = NotificationMake(@"Напоминание о билете", message, _datePicker.date, imageURL);
+        [[NotificationCenter sharedInstance] sendNotification:notification];
+        NSDate *dateAlert = _datePicker.date;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd 'в' HH:mm:ss"];
+        NSString *formattedDate = [dateFormatter stringFromDate:dateAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Успешно" message:[NSString stringWithFormat:@"Уведомление будет отправлено - %@", formattedDate] preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    _datePicker.date = [NSDate date];
+    notificationCell = nil;
+    [self.view endEditing:YES];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -110,7 +149,6 @@
 
     return _tickets.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TicketTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TicketCellReuseIdentifier forIndexPath:indexPath];
@@ -128,7 +166,6 @@
     return 140.0;
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (isFavorites) return;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Действия с билетом" message:@"Что необходимо сделать с выбранным билетом?" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -143,8 +180,14 @@
         }];
     }
     
+    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"Напомнить" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        self->notificationCell = [tableView cellForRowAtIndexPath:indexPath];
+        [self->_dateTextField becomeFirstResponder];
+      }];
+
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Закрыть" style:UIAlertActionStyleCancel handler:nil];
     [alertController addAction:favoriteAction];
+    [alertController addAction:notificationAction];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }

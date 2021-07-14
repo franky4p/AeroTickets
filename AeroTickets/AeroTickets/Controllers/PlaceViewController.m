@@ -17,13 +17,13 @@
 @property (nonatomic, strong) NSArray *currentArray;
 @property (nonatomic, strong) NSArray *searchArray;
 @property (nonatomic, strong) UISearchController *searchController;
+
 @end
 
 
 @implementation PlaceViewController
 
-- (instancetype)initWithType:(PlaceType)type
-{
+- (instancetype)initWithType:(PlaceType)type {
     self = [super init];
     if (self) {
         _placeType = type;
@@ -44,12 +44,7 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
-//    if (@available(iOS 11.0, *)) {
-//        self.navigationItem.searchController = _searchController;
-//    } else {
-        _tableView.tableHeaderView = _searchController.searchBar;
-//    }
+    _tableView.tableHeaderView = _searchController.searchBar;
     
     [self.view addSubview:_tableView];
     
@@ -67,8 +62,7 @@
     }
 }
 
-- (void)changeSource
-{
+- (void)changeSource {
     switch (_segmentedControl.selectedSegmentIndex) {
         case 0:
             _currentArray = [[DataManager sharedInstance]cities];
@@ -82,8 +76,6 @@
     [self.tableView reloadData];
 }
 
-
-
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     if (searchController.searchBar.text) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name CONTAINS[cd] %@", searchController.searchBar.text];
@@ -92,21 +84,16 @@
     }
 }
 
-
-
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_searchController.isActive && [_searchArray count] > 0) {
         return [_searchArray count];
     }
     return [_currentArray count];
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
