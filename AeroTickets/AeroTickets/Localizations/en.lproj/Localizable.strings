@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  AeroTickets
+
+  Created by Pavel Khlebnikov on 14.07.2021.
+  
+*/
+
+"main_search" = "Search";
+"main_mapPrice" = "Map price";
+"main_search_button" = "Searching";
+"main_from" = "From";
+"main_to" = "To";
+"main_close" = "Close";
+"main_title_allert" = "Unfortunately!";
+"main_text_allert" = "No tickets found for this direction";
+
+"ticket_title" = "Tickets";
+"ticket_title_f" = "Favorites";
+"ticket_segmental_1" = "Tickets";
+"ticket_segmental_2" = "MapPrice";
+"ticket_remind" = "Remind";
+"ticket_favoriteAction_add" = "Add to favorite";
+"ticket_favoriteAction_del" = "Del from favorite";
+"ticket_alertController_title" = "Ticket Actions";
+"ticket_alertController_message" = "What needs to be done with the selected ticket?";
+
+"place_segmental_1" = "City";
+"place_segmental_2" = "Airports";
