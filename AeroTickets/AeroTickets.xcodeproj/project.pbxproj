@@ -31,6 +31,8 @@
 		FA8BFB352697082C00045BCB /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8BFB312697082C00045BCB /* DataManager.m */; };
 		FA8BFB362697082C00045BCB /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8BFB322697082C00045BCB /* APIManager.m */; };
 		FAA43545269D8E7B002C1340 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA43544269D8E7B002C1340 /* NotificationCenter.m */; };
+		FAA4354C269ED424002C1340 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA4354E269ED424002C1340 /* Localizable.strings */; };
+		FAA43550269ED451002C1340 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA43552269ED451002C1340 /* InfoPlist.strings */; };
 		FAB03F1026971554007C8812 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F0F26971554007C8812 /* CoreDataHelper.m */; };
 		FAB03F152697195E007C8812 /* FavoriteTiket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F132697195E007C8812 /* FavoriteTiket+CoreDataClass.m */; };
 		FAB03F162697195E007C8812 /* FavoriteTiket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB03F142697195E007C8812 /* FavoriteTiket+CoreDataProperties.m */; };
@@ -82,6 +84,11 @@
 		FA8BFB332697082C00045BCB /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
 		FAA43543269D8E7B002C1340 /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
 		FAA43544269D8E7B002C1340 /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
+		FAA4354B269ED2E1002C1340 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FAA4354D269ED424002C1340 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FAA4354F269ED441002C1340 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FAA43551269ED451002C1340 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FAA43553269ED458002C1340 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FAB03F0E26971554007C8812 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		FAB03F0F26971554007C8812 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		FAB03F112697195E007C8812 /* FavoriteTiket+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FavoriteTiket+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -140,6 +147,7 @@
 				FA8BFAE62697078E00045BCB /* AppDelegate.h */,
 				FA8BFAE92697078E00045BCB /* SceneDelegate.h */,
 				FA8BFAEA2697078E00045BCB /* SceneDelegate.m */,
+				FAA43554269ED464002C1340 /* Localizations */,
 				FA8BFAF52697078F00045BCB /* Assets.xcassets */,
 				FA8BFAF72697078F00045BCB /* LaunchScreen.storyboard */,
 				FA8BFAFA2697078F00045BCB /* Info.plist */,
@@ -220,6 +228,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		FAA43554269ED464002C1340 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				FAA43552269ED451002C1340 /* InfoPlist.strings */,
+				FAA4354E269ED424002C1340 /* Localizable.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,6 +277,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = FA8BFADA2697078E00045BCB;
 			productRefGroup = FA8BFAE42697078E00045BCB /* Products */;
@@ -277,6 +295,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA8BFB072697080700045BCB /* cities.json in Resources */,
+				FAA43550269ED451002C1340 /* InfoPlist.strings in Resources */,
+				FAA4354C269ED424002C1340 /* Localizable.strings in Resources */,
 				FA8BFB062697080700045BCB /* countries.json in Resources */,
 				FA8BFAF92697078F00045BCB /* LaunchScreen.storyboard in Resources */,
 				FA8BFAF62697078F00045BCB /* Assets.xcassets in Resources */,
@@ -325,8 +345,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA8BFAF82697078F00045BCB /* Base */,
+				FAA4354B269ED2E1002C1340 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FAA4354E269ED424002C1340 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAA4354D269ED424002C1340 /* ru */,
+				FAA4354F269ED441002C1340 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		FAA43552269ED451002C1340 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAA43551269ED451002C1340 /* ru */,
+				FAA43553269ED458002C1340 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -336,6 +375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -395,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

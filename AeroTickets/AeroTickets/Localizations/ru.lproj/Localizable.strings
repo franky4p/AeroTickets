@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  AeroTickets
+
+  Created by Pavel Khlebnikov on 14.07.2021.
+  
+*/
+
+"main_search" = "Поиск";
+"main_mapPrice" = "Карта цен";
+"main_search_button" = "Найти";
+"main_from" = "Откуда";
+"main_to" = "Куда";
+"main_close" = "Закрыть";
+"main_title_allert" = "Увы!";
+"main_text_allert" = "По данному направлению билетов не найдено";
+
+"ticket_title" = "Билеты";
+"ticket_title_f" = "Избранное";
+"ticket_segmental_1" = "Билеты";
+"ticket_segmental_2" = "КартыЦен";
+"ticket_remind" = "Напомнить";
+"ticket_favoriteAction_add" = "Добавить в избранное";
+"ticket_favoriteAction_del" = "Удалить из избранного";
+"ticket_alertController_title" = "Действия с билетом";
+"ticket_alertController_message" = "Что необходимо сделать с выбранным билетом?";
+
+"place_segmental_1" = "Города";
+"place_segmental_2" = "Аэропорты";

@@ -48,7 +48,7 @@
     
     [self.view addSubview:_tableView];
     
-    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Города", @"Аэропорты"]];
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[NSLocalizedString(@"place_segmental_1", ""), NSLocalizedString(@"place_segmental_2", "")]];
     [_segmentedControl addTarget:self action:@selector(changeSource) forControlEvents:UIControlEventValueChanged];
     _segmentedControl.tintColor = [UIColor blackColor];
     self.navigationItem.titleView = _segmentedControl;
@@ -56,9 +56,9 @@
     
     [self changeSource];
     if (_placeType == PlaceTypeDeparture) {
-        self.title = @"Откуда";
+        self.title = NSLocalizedString(@"main_from", "");
     } else {
-        self.title = @"Куда";
+        self.title = NSLocalizedString(@"main_to", "");
     }
 }
 
